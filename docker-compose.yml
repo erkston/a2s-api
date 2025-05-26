@@ -1,7 +1,0 @@
-version: '3'
-
-services:
-  hlds-api:
-    build: .
-    ports:
-      - '27014:27014'

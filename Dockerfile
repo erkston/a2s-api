@@ -1,10 +1,12 @@
-FROM python:3.7-alpine3.8
-
-RUN apk add --no-cache curl
+FROM python:3.10-slim
 
 WORKDIR /app
-COPY . .
-RUN pip install -r requirements.txt
+
+COPY app.py .
+COPY requirements.txt .
+
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 27014
 
