@@ -1,6 +1,6 @@
 services:
   a2s-api:
-    image: ghcr.io/erkston/a2s-api
+    image: erkston/a2s-api
     container_name: a2s-api
     environment:
       - SERVER_IP=chi-1.us.uncletopia.com
