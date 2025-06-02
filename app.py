@@ -6,7 +6,7 @@ import socket
 app = Flask(__name__)
 cache = SimpleCache()
 
-@app.route("/query", methods=["POST"])
+@app.route("/query", methods=["GET", "POST"])
 def query_server():
     if request.is_json:
         data = request.get_json()
