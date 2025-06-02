@@ -25,7 +25,7 @@ This will create webserver on port `27014`.
 
 Headers:
 
-```json
+```
 Content-Type: application/json
 ```
 
