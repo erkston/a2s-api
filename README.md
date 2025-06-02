@@ -21,12 +21,12 @@ This will create webserver on port `27014`.
 
 ## Endpoints
 
-### `/query` (POST)
+### `/query`
 
 URL encoded parameters or json body are accepted:
 
 ```
-curl -X POST "http://127.0.0.1:27014/query?ip=chi-1.us.uncletopia.com&port=27015"
+curl -X GET "http://127.0.0.1:27014/query?ip=chi-1.us.uncletopia.com&port=27015"
 ```
 
 or:
