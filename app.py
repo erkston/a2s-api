@@ -8,12 +8,19 @@ cache = SimpleCache()
 
 @app.route("/query", methods=["POST"])
 def query_server():
-    data = request.get_json()
-    if not data or "ip" not in data or "port" not in data:
-        return jsonify({"error": "Missing 'ip' or 'port' in request body"}), 400
+    if request.is_json:
+        data = request.get_json()
+        ip = data.get("ip") if data else None
+        port = data.get("port") if data else None
+    else:
+        ip = request.form.get("ip") or request.args.get("ip")
+        port = request.form.get("port") or request.args.get("port")
 
-    ip = data["ip"]
-    port = int(data["port"])
+
+    if not ip or not port:
+        return jsonify({"error": "Missing 'ip' or 'port' in request"}), 400
+
+    port = int(port)
     server_addr = (ip, port)
 
     cache_key = f"server_info_{ip}_{port}"

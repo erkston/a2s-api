@@ -5,7 +5,7 @@ Flask to create a query REST API for Source Dedicated Servers. Forked from [spez
 
 ## Usage
 
-The script/container no longer requires ENV variables for the server IP/port you want to query. It now takes the server info via POST request body.
+The script/container no longer requires ENV variables for the server IP/port you want to query. It now receives the server info in the POST.
 
 ### Docker
 
@@ -23,6 +23,14 @@ This will create webserver on port `27014`.
 
 ### `/query` (POST)
 
+URL encoded parameters or json body are accepted:
+
+```
+curl -X POST "http://127.0.0.1:27014/query?ip=chi-1.us.uncletopia.com&port=27015"
+```
+
+or:
+
 Headers:
 
 ```
@@ -37,8 +45,6 @@ Body:
   "port": 27015
 }
 ```
-
-Request server information including a player list.
 
 #### Response
 
